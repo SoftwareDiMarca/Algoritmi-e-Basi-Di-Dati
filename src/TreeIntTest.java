@@ -28,10 +28,14 @@ public class TreeIntTest {
 		
 		int1.visit(int1, 0);
 		
-		System.out.println(int1.nodeSumK(int1, 0, 3));
+		System.out.println(int1.nodeSumK(int1, 0, -2));
 		System.out.println(int1.sum(int1));
 		
+		System.out.println(int1.ricorrenzaNumero(int1, -5));
 		
-	}
+		System.out.println(int1.sum4Level(int1, 0));
+		System.out.println(int1.sum4Level(int1, 1));
+		System.out.println(int1.sum4Level(int1, 2));
+		System.out.println(int1.sum4Level(int1, 3));	}
 
 }

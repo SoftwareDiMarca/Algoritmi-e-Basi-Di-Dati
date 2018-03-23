@@ -58,37 +58,7 @@ public class TreeInt {
 				visit(figlio, level + 1);
 			}
 	}
-	
-	
-	
 
-	public Integer nodeSumK2(TreeInt t, Integer sum, Integer k) {
-		
-		int sumEq = 0;
-		sum += t.getIntero();
-				
-		System.out.println(sum);
-		
-		if(t.getFigli().size() == 0) {
-			if(sum == k)
-				sumEq++;
-		}
-		else {
-			for(TreeInt figlio : t.getFigli()) {
-				if(sum == k) {
-					System.out.println("trovato");
-					sumEq += 1 + nodeSumK2(figlio, sum, k);
-					return sumEq;
-				}
-				else {
-					System.out.println("Non trovato");
-					sumEq += nodeSumK2(figlio, sum, k);
-				}
-			}
-		}
-		return sumEq;
-	}
-	
 	
 	public Integer sum(TreeInt t) {
 		if (t == null) {
@@ -108,19 +78,46 @@ public class TreeInt {
 	public Integer nodeSumK(TreeInt t, Integer sum, Integer k) {
 		sum += t.getIntero();
 		Integer s = 0;
-		if(t.getFigli().size() == 0) {
-			if (sum == k)
-				return s++;
-			else return s;
-		}
-		else {
+		if(t.getFigli().size() > 0) {
 			for(TreeInt figlio: t.getFigli()) {
 				s += nodeSumK(figlio, sum, k);
 			}
-			if (sum == k)
-				return s++;
-			else return s;
 		}
+		if (sum == k)
+			s++;
+		return s;
+	}
+	
+	public Integer ricorrenzaNumero(TreeInt t, Integer n) {
+		if (t == null)
+			return 0;
+		Integer ric = 0;
+		if(t.getFigli().size() > 0) {
+			for(TreeInt figlio : t.getFigli())
+				ric += ricorrenzaNumero(figlio, n);
+		}
+		if(t.getIntero() == n)
+			ric++;
+		return ric;
+	}
+	
+	public Integer sum4Level(TreeInt t, int level) {
+		if(t == null)
+			return 0;
+		if(level == 0)
+			return t.getIntero();
+		Integer sum = 0;
+		if (level == 1) {
+			if(t.getFigli().size() > 0) {
+				for(TreeInt figlio : t.getFigli())
+					sum += figlio.getIntero();
+			}
+		}
+		else {
+			for(TreeInt figlio : t.getFigli())
+				sum += sum4Level(figlio, level - 1);	
+		}
+		return sum;
 	}
 
 }
