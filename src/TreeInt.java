@@ -59,26 +59,34 @@ public class TreeInt {
 			}
 	}
 	
+	
+	
+
 	public Integer nodeSumK(TreeInt t, Integer sum, Integer k) {
+		
+		int sumEq = 0;
 		sum += t.getIntero();
+				
+		System.out.println(sum);
+		
 		if(t.getFigli().size() == 0) {
 			if(sum == k)
-				return 1;
-			else
-				return 0;
+				sumEq++;
 		}
 		else {
 			for(TreeInt figlio : t.getFigli()) {
-				if(sum == k) 
-					return 1 + nodeSumK(figlio, sum, k);	
-				else
-					return nodeSumK(figlio, sum, k);
+				if(sum == k) {
+					System.out.println("trovato");
+					sumEq += 1 + nodeSumK(figlio, sum, k);
+					return sumEq;
+				}
+				else {
+					System.out.println("Non trovato");
+					sumEq += nodeSumK(figlio, sum, k);
+				}
 			}
-			return 7;
 		}
-	}
-		
-
-	
+		return sumEq;
+	}		
 
 }
