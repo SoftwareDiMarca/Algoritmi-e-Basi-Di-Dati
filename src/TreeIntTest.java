@@ -12,7 +12,7 @@ public class TreeIntTest {
 		
 		Integer[] interi1 = {2};
 		Integer[] interi2 = {3};
-		Integer[] interi3 = {-3,1};
+		Integer[] interi3 = {0,1};
 		Integer[] interi4 = {1};
 		Integer[] interi5 = {6,1,-1,-3};
 		
@@ -28,7 +28,8 @@ public class TreeIntTest {
 		
 		int1.visit(int1, 0);
 		
-		System.out.println(int1.nodeSumK(int1, 0, 4));
+		System.out.println(int1.nodeSumK(int1, 0, 3));
+		System.out.println(int1.sum(int1));
 		
 		
 	}

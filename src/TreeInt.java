@@ -62,7 +62,7 @@ public class TreeInt {
 	
 	
 
-	public Integer nodeSumK(TreeInt t, Integer sum, Integer k) {
+	public Integer nodeSumK2(TreeInt t, Integer sum, Integer k) {
 		
 		int sumEq = 0;
 		sum += t.getIntero();
@@ -77,16 +77,52 @@ public class TreeInt {
 			for(TreeInt figlio : t.getFigli()) {
 				if(sum == k) {
 					System.out.println("trovato");
-					sumEq += 1 + nodeSumK(figlio, sum, k);
+					sumEq += 1 + nodeSumK2(figlio, sum, k);
 					return sumEq;
 				}
 				else {
 					System.out.println("Non trovato");
-					sumEq += nodeSumK(figlio, sum, k);
+					sumEq += nodeSumK2(figlio, sum, k);
 				}
 			}
 		}
 		return sumEq;
-	}		
+	}
+	
+	
+	public Integer sum(TreeInt t) {
+		if (t == null) {
+			return 0;
+		}
+		if (t.getFigli().size() == 0) {
+			return t.getIntero();
+		}
+		else {
+			int s = t.getIntero();
+			for(TreeInt figlio : t.getFigli())
+				s += sum(figlio);
+			return s;
+		}
+	}
+	
+	public Integer nodeSumK(TreeInt t, Integer sum, Integer k) {
+		sum += t.getIntero();
+		Integer s = 0;
+		if(t.getFigli().size() == 0) {
+			if (sum == k)
+				return s++;
+			else return s;
+		}
+		else {
+			for(TreeInt figlio: t.getFigli()) {
+				s += nodeSumK(figlio, sum, k);
+			}
+			if (sum == k)
+				return s++;
+			else return s;
+		}
+	}
 
 }
+
+	
