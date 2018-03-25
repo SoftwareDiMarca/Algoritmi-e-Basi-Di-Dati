@@ -24,6 +24,13 @@ public class Persona {
 	public void setAnni(int anni) {
 		this.anni = anni;
 	}
+	
+	@Override
+	public String toString() {
+		String s = getNome();
+		s += "\nAnni = " + getAnni() + "\n";
+		return s;
+	}
 
 	
 	

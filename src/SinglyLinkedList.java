@@ -44,7 +44,7 @@ public class SinglyLinkedList<E> {
 	public SinglyLinkedList() {}
 
 	//Accessor e Mutator
-	public int getSize() {
+	public int size() {
 		return size;
 	}
 	
@@ -52,15 +52,14 @@ public class SinglyLinkedList<E> {
 		return size == 0;
 	}
 	
-	public Node<E> getFirst() {
+	public Node<E> First() {
 		return head;
 	}
-	public Node<E> getLast() {
+	public Node<E> Last() {
 		return tail;
 	}
 
 	//Metodi di aggiornamento
-	
 	
 	public void addFirst(E element) {
 		this.head = new Node(element, this.head);
@@ -69,13 +68,61 @@ public class SinglyLinkedList<E> {
 		size++;		
 	}
 	
+	public void addLast(E element) {
+		Node newNode = new Node(element, null);
+		if(size == 0)
+			head = newNode;
+		else 
+			tail.setNext(newNode);
+		tail = newNode;
+		size++;
+	}
+	
+	public E removeFirst() {
+		if(isEmpty()) return null;
+		E element = this.head.getElement();
+		this.head = this.head.getNext();
+		size--;
+		if(size == 0)
+			tail = null;
+		return element;
+	}
+	
+	public E elementN(int n) {
+		if(isEmpty())
+			return null;
+		else {
+			Node<E> tmp = this.First();
+			n--;
+			while(n > 0) {
+				tmp = tmp.getNext();
+				if(tmp == null) {
+					System.out.println("La lista contiene " + size() + " elementi");
+					return null;
+				}
+				n--;
+			}
+			return tmp.getElement();
+		}
+	}
 	
 
-
-
-
-
-
+	@Override
+	public String toString() {
+		String s = "";
+		if(isEmpty())
+			s += "List is empty";
+		else {
+			Node<E>  tmp = this.First();
+			s += "Elementi della List:\n";
+			while(tmp != null) {
+				s += tmp.getElement().toString();
+				tmp = tmp.getNext();
+			}
+		}
+		return s;
+	}
+	
 }
 
 
