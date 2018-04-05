@@ -85,6 +85,12 @@ public class BinarySearchTree {
 		}
 	}
 	
+	public int minValue() {
+		if(this.getLeftChild() != null) {
+			return this.getLeftChild().minValue();
+		}
+		else return this.getValue();
+	}
 
 
 }
