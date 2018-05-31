@@ -75,6 +75,34 @@ public class List<T> {
 		return pos.succ;
 	}
 	
+	public List<Integer> auxPrimiNL(int n, List<Integer> L) {
+		if(n >= 1) {
+			L.insert(L.head(), n);
+			auxPrimiNL(n - 1, L);
+		}
+		return L;
+	}
+	
+	public List<Integer> auxPrimiNM(int n, List<Integer> M) {
+		if(n >= 1) {
+			M.insert(M.next(M.tail()), n);
+			auxPrimiNM(n - 1, M);
+		}
+		return M;
+	}
+	
+	public List<Integer> PrimiNM(int n) {
+		List<Integer> M = new List();
+		M = auxPrimiNM(n, M);
+		return M;
+	}
+	
+	public List<Integer> primiNL(int n) {
+		List<Integer> L = new List();
+		L = auxPrimiNL(n, L);
+		return L;
+	}
+	
 	@Override
 	public String toString() {
 		if(isEmpty())
