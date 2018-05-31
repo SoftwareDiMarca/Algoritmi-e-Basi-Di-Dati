@@ -36,12 +36,14 @@ public class CircleSP extends Application {
 			text.setFont(new Font("Arial", 32));
 			text.setFill(Color.RED);
 			this.sp.getChildren().add(text);
+			
 			this.circle.setOnMouseClicked(new EventHandler<Event>() {
 				@Override
 				public void handle(Event event) {
 					circle.setRadius(circle.getRadius() * 2);
 				}
 			});
+			
 		}
 
 		public StackPane getStackPane() {
