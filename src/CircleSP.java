@@ -63,13 +63,10 @@ public class CircleSP extends Application {
 		CircleHandsMade circle = new CircleHandsMade(30., 23);
 
 		HBox hBox = new HBox(0);
-		hBox.setStyle("-fx-border-color:red");
 		hBox.setAlignment(Pos.CENTER);
 		hBox.setSpacing(0);
 
 		hBox.getChildren().add(circle.getStackPane());
-
-		bp.setStyle("-fx-border-color:blue");
 		bp.setCenter(hBox);
 
 		stage.setScene(scene);
