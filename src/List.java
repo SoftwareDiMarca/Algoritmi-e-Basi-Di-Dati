@@ -59,13 +59,13 @@ public class List<T> {
 		return pos == this;
 	}
 	
-	public List<T> insert(List<T> pos, T value) {
-		List<T> t = new List();
-		write(t, value);
-		t.succ = pos;
-		t.pred = pos.pred;
-		pos.pred.succ = t;
-		pos.pred = t;
+	public List<T> insert(List<T> p, T v) {
+		List<T> t = new List<>();
+		t.value = v;
+		t.succ = p;
+		t.pred = p.pred;
+		p.pred.succ = t;
+		p.pred = t;
 		return t;
 	}
 	
@@ -92,13 +92,13 @@ public class List<T> {
 	}
 	
 	public List<Integer> PrimiNM(int n) {
-		List<Integer> M = new List();
+		List<Integer> M = new List<>();
 		M = auxPrimiNM(n, M);
 		return M;
 	}
 	
 	public List<Integer> primiNL(int n) {
-		List<Integer> L = new List();
+		List<Integer> L = new List<>();
 		L = auxPrimiNL(n, L);
 		return L;
 	}
