@@ -1,28 +1,44 @@
 package Tree;
 
+import javax.swing.plaf.synth.SynthScrollBarUI;
+
 public class TreeTest {
 	
 	public static void main(String[] args) {
-		Tree<Integer> uno = new Tree<>(1);
-		Tree<Integer> due = new Tree<>(2);
-		Tree<Integer> tre = new Tree<>(3);
-		Tree<Integer> quattro = new Tree<>(4);
-		Tree<Integer> cinque = new Tree<>(5);
-		Tree<Integer> sei = new Tree<>(6);
-		Tree<Integer> sette = new Tree<>(7);
+		Tree<Character> uno = new Tree<>('A');
+		Tree<Character> due = new Tree<>('B');
+		Tree<Character> tre = new Tree<>('C');
+		Tree<Character> quattro = new Tree<>('D');
+		Tree<Character> cinque = new Tree<>('E');
+		Tree<Character> sei = new Tree<>('F');
+		Tree<Character> sette = new Tree<>('G');
+		Tree<Character> otto = new Tree<>('H');
+		Tree<Character> nove = new Tree<>('I');
+		Tree<Character> dieci = new Tree<>('L');
 		
 		uno.insertChild(due);
-		due.insertSibling(tre);
+		due.insertSibling(sei);
+		sei.insertSibling(sette);
+		due.insertChild(tre);
+		tre.insertSibling(cinque);
 		tre.insertChild(quattro);
-		quattro.insertSibling(cinque);
-		cinque.insertSibling(sei);
-		cinque.insertChild(sette);
+		sette.insertChild(otto);
+		otto.insertChild(nove);
+		nove.insertSibling(dieci);
 		
 		uno.DFSPreOrder(uno);
 		System.out.println("");
 		uno.DFSPostOrder(uno);
 		System.out.println("");
-		uno.DFSInOrder(uno, 2);
+		uno.DFSInOrder(uno, 1);
+		System.out.println("");
+		uno.BFS(uno);
+		System.out.println("");
+		System.out.println(uno.height(uno));
+		System.out.println("");
+//		uno.deleteLeaf(uno, 24, 0);
+		uno.BFS(uno);
+		
 		
 
 }
