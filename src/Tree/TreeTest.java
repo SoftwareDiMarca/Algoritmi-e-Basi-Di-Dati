@@ -37,7 +37,7 @@ public class TreeTest {
 		System.out.println(uno.height(uno));
 		System.out.println("");
 //		uno.deleteLeaf(uno, 24, 0);
-		uno.BFS(uno);
+		uno.BFS(uno); 
 		
 		
 
